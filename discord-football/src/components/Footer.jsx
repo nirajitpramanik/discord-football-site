@@ -27,7 +27,7 @@ const Footer = () => {
           <div className="footer-social">
             <h4>Connect With Us</h4>
             <div className="social-icons">
-              <a href="https://discord.gg/NXEQaGWTcg" target="_blank" rel="noopener noreferrer" className="social-icon discord">
+              <a href="https://discord.gg/hcNby9zvu8" target="_blank" rel="noopener noreferrer" className="social-icon discord">
                 <i className="fab fa-discord"></i>
               </a>
               <a href="#" target="_blank" rel="noopener noreferrer" className="social-icon twitter">
@@ -41,7 +41,7 @@ const Footer = () => {
           
           <div className="footer-cta">
             <h4>Join Our Community</h4>
-            <a href="https://discord.gg/NXEQaGWTcg" className="footer-cta-button" target="_blank" rel="noopener noreferrer">
+            <a href="https://discord.gg/hcNby9zvu8" className="footer-cta-button" target="_blank" rel="noopener noreferrer">
               Join Server
             </a>
           </div>

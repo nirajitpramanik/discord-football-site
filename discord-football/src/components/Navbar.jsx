@@ -149,7 +149,7 @@ const Navbar = () => {
                 </a>
               </li>
               <li>
-                <a href="https://discord.gg/NXEQaGWTcg" 
+                <a href="https://discord.gg/hcNby9zvu8" 
                   className="join-button" 
                   target="_blank" 
                   rel="noopener noreferrer">

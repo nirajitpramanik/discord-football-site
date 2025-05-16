@@ -37,7 +37,7 @@ const Home = () => {
         <div className="hero-content animate-on-scroll">
           <h1>Discord Football</h1>
           <p>The ultimate community for football fans around the world</p>
-          <a href="https://discord.gg/NXEQaGWTcg" 
+          <a href="https://discord.gg/hcNby9zvu8" 
             className="btn-join-server"
             target="_blank" 
             rel="noopener noreferrer">
@@ -135,7 +135,7 @@ const Home = () => {
           <div className="cta-content animate-on-scroll">
             <h2>Jump into the conversation!</h2>
             <p>All fans of all clubs in all countries welcome!</p>
-            <a href="https://discord.gg/NXEQaGWTcg" 
+            <a href="https://discord.gg/hcNby9zvu8" 
               className="btn-join-cta"
               target="_blank" 
               rel="noopener noreferrer">
