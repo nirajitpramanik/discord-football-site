@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>League Tables - Football Manager Draft</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/fm-styles.css">
+    <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
+</head>
+<body>
+    <!-- Background particles -->
+    <div class="bg-particles" id="particles"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">
+                <img src="./assets/img/server_logo.gif" alt="Football Logo" class="logo-img">
+                Football FM Draft
+            </a>
+            <div class="fm-nav-links">
+                <a href="fm-draft.html" class="fm-nav-link">Results</a>
+                <a href="fm-tables.html" class="fm-nav-link active">Tables</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="fm-main">
+        <div class="fm-container">
+            <h1 class="fm-title">League Tables</h1>
+            <p class="fm-subtitle">Current standings for both divisions</p>
+            
+            <div class="fm-loading" id="fm-tables-loading">
+                <div class="fm-spinner"></div>
+                <p>Loading tables...</p>
+            </div>
+
+            <div class="fm-tables-grid" id="fm-tables-grid">
+                <!-- Tables will be loaded here -->
+            </div>
+
+            <div class="fm-error" id="fm-tables-error" style="display: none;">
+                <p>Failed to load tables. Please try again later.</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="assets/js/fm-tables.js"></script>
+</body>
+</html>

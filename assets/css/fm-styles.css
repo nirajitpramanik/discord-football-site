@@ -1,0 +1,971 @@
+/* FM Draft Styles - Complete CSS for both Main Results and Detailed Results pages */
+
+/* Main Layout */
+.fm-main {
+    min-height: 100vh;
+    padding-top: 120px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    position: relative;
+    z-index: 1;
+}
+
+.fm-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* Navigation */
+.fm-nav-links {
+    display: flex;
+    gap: 20px;
+    margin-left: auto;
+}
+
+.fm-nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    border: 2px solid transparent;
+}
+
+.fm-nav-link:hover {
+    background: rgba(88, 101, 242, 0.2);
+    border-color: rgba(88, 101, 242, 0.5);
+    transform: translateY(-2px);
+}
+
+.fm-nav-link.active {
+    background: linear-gradient(135deg, #5865f2, #7289da);
+    border-color: #5865f2;
+    box-shadow: 0 5px 15px rgba(88, 101, 242, 0.4);
+}
+
+/* Typography */
+.fm-title {
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #ffffff, #b3b3ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.fm-subtitle {
+    text-align: center;
+    color: #cccccc;
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+}
+
+.fm-section-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+/* Loading Animation */
+.fm-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem;
+    color: #ffffff;
+}
+
+.fm-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(88, 101, 242, 0.3);
+    border-top: 4px solid #5865f2;
+    border-radius: 50%;
+    animation: fm-spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes fm-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Error State */
+.fm-error, .fm-no-results {
+    text-align: center;
+    color: #ff6b6b;
+    padding: 2rem;
+    background: rgba(255, 107, 107, 0.1);
+    border: 1px solid rgba(255, 107, 107, 0.3);
+    border-radius: 10px;
+    margin: 2rem 0;
+}
+
+/* Matchdays Container */
+.fm-matchdays-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Matchday Card */
+.fm-matchday-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.fm-matchday-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border-color: rgba(88, 101, 242, 0.5);
+}
+
+/* Matchday Header */
+.fm-matchday-header {
+    padding: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, rgba(88, 101, 242, 0.1), rgba(114, 137, 218, 0.1));
+    transition: all 0.3s ease;
+}
+
+.fm-matchday-header:hover {
+    background: linear-gradient(135deg, rgba(88, 101, 242, 0.2), rgba(114, 137, 218, 0.2));
+}
+
+.fm-matchday-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0;
+}
+
+.fm-matchday-toggle {
+    font-size: 1.5rem;
+    color: #5865f2;
+    transition: transform 0.3s ease;
+}
+
+.fm-matchday-toggle.active {
+    transform: rotate(180deg);
+}
+
+/* Matchday Content */
+.fm-matchday-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.fm-matchday-content.active {
+    max-height: 1000px;
+}
+
+.fm-matchday-inner {
+    padding: 2rem;
+}
+
+/* Results Grid */
+.fm-results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.fm-result-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.fm-result-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.fm-result-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.fm-result-card:hover .fm-result-image {
+    transform: scale(1.05);
+}
+
+/* View Details Button */
+.fm-view-details-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #5865f2, #7289da);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(88, 101, 242, 0.3);
+}
+
+.fm-view-details-btn:hover {
+    background: linear-gradient(135deg, #4752c4, #5b6ecd);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(88, 101, 242, 0.4);
+}
+
+/* Breadcrumb */
+.fm-breadcrumb {
+    margin-bottom: 2rem;
+}
+
+.fm-breadcrumb-link {
+    color: #5865f2;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.fm-breadcrumb-link:hover {
+    color: #7289da;
+}
+
+/* =================================================================== */
+/* DETAILED RESULTS PAGE STYLES */
+/* =================================================================== */
+
+/* Details Section */
+.fm-details-section {
+    margin-bottom: 3rem;
+}
+
+/* Responsive Grid for Detailed Results */
+.fm-detailed-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 0;
+}
+
+/* Detailed Cards */
+.fm-detailed-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    position: relative;
+}
+
+.fm-detailed-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    border-color: rgba(88, 101, 242, 0.6);
+}
+
+/* Image Container */
+.fm-detailed-image-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.fm-detailed-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.fm-detailed-card:hover .fm-detailed-image {
+    transform: scale(1.1);
+}
+
+/* Overlay */
+.fm-detailed-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    color: white;
+    padding: 1rem;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.fm-detailed-card:hover .fm-detailed-overlay {
+    transform: translateY(0);
+}
+
+.fm-detailed-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.fm-detailed-expand {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+/* Modal Styles */
+.fm-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.fm-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.fm-modal-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+.fm-modal-content {
+    position: relative;
+    background: rgba(26, 26, 46, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 2rem;
+    max-width: 90vw;
+    max-height: 90vh;
+    overflow: auto;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+}
+
+.fm-modal.active .fm-modal-content {
+    transform: scale(1);
+}
+
+.fm-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fm-modal-close:hover {
+    background: rgba(255, 107, 107, 0.8);
+    transform: rotate(90deg);
+}
+
+.fm-modal-title {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    padding-right: 3rem; /* Account for close button */
+}
+
+.fm-modal-image-container {
+    text-align: center;
+}
+
+.fm-modal-image {
+    max-width: 100%;
+    max-height: 70vh;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* =================================================================== */
+/* LEGACY STYLES FOR COMPATIBILITY */
+/* =================================================================== */
+
+/* Details Container (for other pages) */
+.fm-details-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.fm-detail-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.fm-detail-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    border-color: rgba(88, 101, 242, 0.5);
+}
+
+.fm-detail-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.fm-detail-card:hover .fm-detail-image {
+    transform: scale(1.02);
+}
+
+/* Tables Grid */
+.fm-table-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.fm-table-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    border-color: rgba(88, 101, 242, 0.5);
+}
+
+.fm-table-header {
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(88, 101, 242, 0.2), rgba(114, 137, 218, 0.2));
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.fm-table-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.fm-table-content {
+    padding: 0;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.fm-table-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.fm-tables-info {
+    color: #cccccc;
+    font-size: 1.1rem;
+    margin: 0;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.fm-tables-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+/* Summary Grid */
+.fm-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.fm-summary-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.fm-summary-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+
+.fm-summary-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.fm-summary-card:hover .fm-summary-image {
+    transform: scale(1.05);
+}
+
+/* =================================================================== */
+/* RESPONSIVE DESIGN */
+/* =================================================================== */
+
+@media (max-width: 1200px) {
+    .fm-detailed-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1rem;
+    }
+    
+    .fm-container {
+        max-width: 1200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .fm-title {
+        font-size: 2rem;
+    }
+    
+    .fm-subtitle {
+        font-size: 1rem;
+    }
+    
+    .fm-section-title {
+        font-size: 1.5rem;
+    }
+    
+    .fm-nav-links {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+    }
+    
+    .fm-results-grid,
+    .fm-details-container,
+    .fm-tables-grid,
+    .fm-summary-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .fm-detailed-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+    }
+    
+    .fm-detailed-image {
+        height: 150px;
+    }
+    
+    .fm-matchday-header {
+        padding: 1rem;
+    }
+    
+    .fm-matchday-inner {
+        padding: 1rem;
+    }
+    
+    .fm-container {
+        padding: 0 15px;
+    }
+    
+    .fm-modal-content {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    
+    .fm-modal-title {
+        font-size: 1.2rem;
+        padding-right: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .fm-main {
+        padding-top: 100px;
+    }
+    
+    .fm-title {
+        font-size: 1.5rem;
+    }
+    
+    .fm-section-title {
+        font-size: 1.3rem;
+    }
+    
+    .fm-matchday-title {
+        font-size: 1.2rem;
+    }
+    
+    .fm-view-details-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .fm-detailed-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+    
+    .fm-detailed-image {
+        height: 120px;
+    }
+    
+    .fm-detailed-title {
+        font-size: 0.9rem;
+    }
+    
+    .fm-detailed-expand {
+        font-size: 0.8rem;
+    }
+    
+    .fm-modal-content {
+        padding: 1rem;
+        margin: 0.5rem;
+    }
+    
+    .fm-modal-title {
+        font-size: 1rem;
+    }
+    
+    .fm-modal-close {
+        width: 35px;
+        height: 35px;
+        font-size: 1.5rem;
+    }
+}
+
+/* Very small screens */
+@media (max-width: 320px) {
+    .fm-detailed-grid {
+        gap: 0.5rem;
+    }
+    
+    .fm-detailed-image {
+        height: 100px;
+    }
+}
+
+/* Animation for cards */
+@keyframes fm-fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Ensure no weird overflow issues */
+* {
+    box-sizing: border-box;
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+/* Force override any existing image constraints for responsive images */
+.fm-detail-image,
+.fm-result-image,
+.fm-summary-image {
+    max-width: 100% !important;
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: none !important;
+    object-position: initial !important;
+}
+
+/* Navigation section styles */
+.fm-tables-navigation {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    opacity: 1;
+    visibility: visible;
+    display: block;
+}
+
+.fm-nav-section {
+    text-align: center;
+    width: 100%;
+}
+
+.fm-nav-title {
+    color: #ffffff;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    display: block;
+}
+
+.fm-matchday-selector {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.fm-select-label {
+    color: #cccccc;
+    font-size: 1.1rem;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.fm-select {
+    padding: 12px 20px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    background: rgba(26, 26, 46, 0.8);
+    color: #ffffff;
+    font-size: 1rem;
+    min-width: 200px;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    position: relative;
+}
+
+.fm-select:focus {
+    outline: none;
+    border-color: rgba(88, 101, 242, 0.8);
+    box-shadow: 0 0 0 3px rgba(88, 101, 242, 0.2);
+    background: rgba(26, 26, 46, 0.9);
+}
+
+.fm-select:hover {
+    border-color: rgba(88, 101, 242, 0.6);
+    background: rgba(26, 26, 46, 0.9);
+}
+
+.fm-select option {
+    background: #1a1a2e;
+    color: #ffffff;
+    padding: 12px;
+    font-size: 1rem;
+    border: none;
+}
+
+.fm-select option:checked {
+    background: rgba(88, 101, 242, 0.8);
+    color: white;
+}
+
+.fm-select option:hover {
+    background: rgba(88, 101, 242, 0.6);
+}
+
+.fm-view-tables-btn {
+    padding: 12px 30px;
+    background: linear-gradient(135deg, #5865f2, #7289da);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(88, 101, 242, 0.3);
+    font-size: 1rem;
+    white-space: nowrap;
+}
+
+.fm-view-tables-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #4752c4, #5b6ecd);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(88, 101, 242, 0.4);
+}
+
+.fm-view-tables-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: 0 5px 15px rgba(88, 101, 242, 0.1);
+    background: linear-gradient(135deg, #666, #888);
+}
+
+/* Loading state for navigation */
+.fm-tables-navigation.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.fm-tables-navigation.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid rgba(88, 101, 242, 0.3);
+    border-top: 2px solid #5865f2;
+    border-radius: 50%;
+    animation: fm-spin 1s linear infinite;
+}
+
+/* No tables message */
+.fm-no-tables {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3rem;
+    color: #cccccc;
+    font-size: 1.1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+/* Responsive adjustments for tables */
+@media (max-width: 1200px) {
+    .fm-tables-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .fm-tables-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .fm-table-header {
+        padding: 1rem;
+    }
+    
+    .fm-table-title {
+        font-size: 1.3rem;
+    }
+    
+    .fm-tables-navigation {
+        padding: 1.5rem;
+        margin-top: 2rem;
+    }
+    
+    .fm-nav-title {
+        font-size: 1.3rem;
+    }
+    
+    .fm-matchday-selector {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .fm-select {
+        min-width: 180px;
+        font-size: 0.9rem;
+    }
+    
+    .fm-view-tables-btn {
+        padding: 10px 25px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .fm-tables-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .fm-table-header {
+        padding: 0.8rem;
+    }
+    
+    .fm-table-title {
+        font-size: 1.1rem;
+    }
+    
+    .fm-tables-navigation {
+        padding: 1rem;
+    }
+    
+    .fm-nav-title {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .fm-matchday-selector {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .fm-select {
+        min-width: 150px;
+        padding: 10px 15px;
+    }
+    
+    .fm-view-tables-btn {
+        padding: 10px 20px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Ensure tables grid uses the full width */
+.fm-tables-grid {
+    width: 100%;
+    display: grid;
+    gap: 1rem;
+}
+
+/* Grid layout for the main tables grid */
+.fm-tables-grid {
+    display: block; /* Changed from grid to block for better control */
+}

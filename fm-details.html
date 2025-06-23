@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detailed Results - Football Manager Draft</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/fm-styles.css">
+    <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
+</head>
+<body>
+    <!-- Background particles -->
+    <div class="bg-particles" id="particles"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">
+                <img src="./assets/img/server_logo.gif" alt="Football Logo" class="logo-img">
+                Football FM Draft
+            </a>
+            <div class="fm-nav-links">
+                <a href="fm-draft.html" class="fm-nav-link">Results</a>
+                <a href="fm-tables.html" class="fm-nav-link">Tables</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="fm-main">
+        <div class="fm-container">
+            <div class="fm-breadcrumb">
+                <a href="fm-draft.html" class="fm-breadcrumb-link">← Back to Results</a>
+            </div>
+
+            <h1 class="fm-title" id="fm-details-title">Detailed Results</h1>
+            
+            <div class="fm-loading" id="fm-details-loading">
+                <div class="fm-spinner"></div>
+                <p>Loading detailed results...</p>
+            </div>
+
+            <div class="fm-details-container" id="fm-details-container">
+                <!-- Detailed results will be loaded here -->
+            </div>
+
+            <div class="fm-error" id="fm-details-error" style="display: none;">
+                <p>Failed to load detailed results. Please try again later.</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="assets/js/fm-details.js"></script>
+</body>
+</html>

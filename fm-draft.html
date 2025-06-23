@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Manager Draft Results - Football Discord</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/fm-styles.css">
+    <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
+</head>
+<body>
+    <!-- Background particles -->
+    <div class="bg-particles" id="particles"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <a href="index.html" class="logo">
+                <img src="./assets/img/server_logo.gif" alt="Football Logo" class="logo-img">
+                Football FM Draft
+            </a>
+            <div class="fm-nav-links">
+                <a href="fm-draft.html" class="fm-nav-link active">Results</a>
+                <a href="fm-tables.html" class="fm-nav-link">Tables</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="fm-main">
+        <div class="fm-container">
+            <h1 class="fm-title">Football Manager Draft Results</h1>
+            <p class="fm-subtitle">Click on each matchday to view the results</p>
+            
+            <div class="fm-loading" id="fm-loading">
+                <div class="fm-spinner"></div>
+                <p>Loading matchdays...</p>
+            </div>
+
+            <div class="fm-matchdays-container" id="fm-matchdays-container">
+                <!-- Matchdays will be loaded here dynamically -->
+            </div>
+
+            <div class="fm-error" id="fm-error" style="display: none;">
+                <p>Failed to load matchday data. Please try again later.</p>
+            </div>
+        </div>
+    </main>
+
+    <script src="assets/js/fm-script.js"></script>
+</body>
+</html>
